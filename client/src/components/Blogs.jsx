@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import Nav from "../shared/Nav";
 import axios from "axios";
 
 const Blogs = () => {
@@ -27,8 +28,9 @@ const Blogs = () => {
   });
 
   return (
-    <div>
+    <div className="blogs">
       <h1>Blogs</h1>
+      <Nav />
       <ul>{blogsData}</ul>
     </div>
   );

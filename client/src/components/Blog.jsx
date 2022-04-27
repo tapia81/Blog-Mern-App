@@ -46,14 +46,20 @@ function Blog() {
 
   return (
     <Layout>
-      <h4>{blog.title}</h4>
-      <p>Content: {blog.content}</p>
-      <button onClick={() => destroy()}>Delete Blog</button>
-      <NavLink to={`/blogs/${id}/edit`}>
-        <button>Edit</button>
-      </NavLink>
+      <div className="blog-post">
+        <h4>{blog.title}</h4>
+        <p>Content: {blog.content}</p>
+      </div>
+      <div className="blog-links">
+        <NavLink to={`/blogs/${id}/edit`}>
+          <button>Edit</button>
+        </NavLink>
+        <button onClick={() => destroy()}>Delete Blog</button>
 
-      <NavLink to={"/blogs"}>Back to all blogs</NavLink>
+        <NavLink to={"/blogs"}>
+          <button>Back to all blogs</button>
+        </NavLink>
+      </div>
     </Layout>
   );
 }

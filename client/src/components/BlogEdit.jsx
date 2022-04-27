@@ -12,7 +12,7 @@ function BlogEdit() {
     content: "",
   });
   const [updated, setUpdated] = useState(false);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
