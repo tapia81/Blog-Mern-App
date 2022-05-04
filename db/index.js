@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 let MONGODB_URI =
-  process.env.PROD_MONGODB || process.env.MONGODB_URI || "Your Database Link";
+  process.env.PROD_MONGODB || process.env.MONGODB_URI || "Your address";
 
 mongoose
   .connect(MONGODB_URI, {

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import Layout from "../shared/Layout";
 import BlogForm from "../shared/BlogForm";
 
 function BlogEdit() {
@@ -49,14 +48,14 @@ function BlogEdit() {
   });
 
   return (
-    <Layout>
+    <div>
       <BlogForm
         blog={blog}
         handleChange={(e) => handleChange(e)}
         handleSubmit={(e) => handleSubmit(e)}
         cancelPath={`/blogs/${id}`}
       />
-    </Layout>
+    </div>
   );
 }
 

@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 const BlogForm = ({ blog, handleSubmit, handleChange, cancelPath }) => {
   return (
     <div>
-      <form onSubmit={(e) => handleSubmit(e)} className="blog-form">
-        <label>Title</label>
+      <form onSubmit={(e) => handleSubmit(e)} className="blog-form-container">
         <input
           type="text"
           placeholder="Enter New Blog Title"
@@ -14,18 +13,20 @@ const BlogForm = ({ blog, handleSubmit, handleChange, cancelPath }) => {
         />
         <input
           type="text"
-          placeholder="Enter New Blog Message"
+          placeholder="Enter New Blog Post"
           defaultValue={blog.content}
           name="content"
           onChange={(e) => handleChange(e)}
           className="post"
         />
         <div>
-          <button type="submit">Submit</button>
+          <div className="blog-form-buttons">
+            <button type="submit">Submit</button>
 
-          <Link to={cancelPath}>
-            <button>Cancel</button>
-          </Link>
+            <Link to={cancelPath}>
+              <button>Cancel</button>
+            </Link>
+          </div>
         </div>
       </form>
     </div>

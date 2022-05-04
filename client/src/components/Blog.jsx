@@ -40,25 +40,28 @@ function Blog() {
   };
   useEffect(() => {
     if (deleted) {
-      return navigate("/");
+      return navigate("/blogs");
     }
   }, [deleted, navigate]);
 
   return (
     <Layout>
-      <div className="blog-post">
-        <h4>{blog.title}</h4>
-        <p>Content: {blog.content}</p>
-      </div>
-      <div className="blog-links">
-        <NavLink to={`/blogs/${id}/edit`}>
-          <button>Edit</button>
-        </NavLink>
-        <button onClick={() => destroy()}>Delete Blog</button>
+      <div className="blog-post-container">
+        <div className="blog-post">
+          <h4>{blog.title}</h4>
+          <p>Content: {blog.content}</p>
+        </div>
+        <div className="blog-post-buttons">
+          <NavLink to={`/blogs/${id}/edit`}>
+            <button>Edit</button>
+          </NavLink>
 
-        <NavLink to={"/blogs"}>
-          <button>Back to all blogs</button>
-        </NavLink>
+          <button onClick={() => destroy()}>Delete Blog</button>
+
+          <NavLink to={"/blogs"}>
+            <button>Back to all blogs</button>
+          </NavLink>
+        </div>
       </div>
     </Layout>
   );

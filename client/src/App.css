@@ -3,65 +3,171 @@
   margin: 0;
   padding: 0;
 }
-.layout,
-.blogs,
-ul,
-.blog-post {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  gap: 5vh;
+
+body {
+  background-color: white;
 }
-nav {
+
+nav,
+.header,
+.nav-links,
+.footer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  gap: 2vw;
-  font-size: 1.9vw;
-  text-decoration: none;
 }
 
-a {
-  text-decoration: none;
+nav {
+  justify-content: space-around;
+  font-size: 2vw;
+  width: 30vw;
 }
 
+.header {
+  justify-content: space-between;
+  width: 90vw;
+  font-size: 2.7vw;
+  margin-top: 2vh;
+}
+
+.footer {
+  justify-content: center;
+  min-height: 10vh;
+  width: 100vw;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 10vh;
+  border-bottom: solid;
+  border-color: black;
+  border-width: 0.8vh;
+}
+
+a:link,
 a:visited,
-a:active,
-a:link {
+a:active {
+  text-decoration: none;
   color: black;
 }
 
-main {
-  height: 65vh;
+.home-container,
+.blogs-container,
+.blog-post-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 100vw;
+  padding-bottom: 5vh;
+  border-bottom: solid;
+  border-color: black;
+  border-width: 0.2vh;
+  background-color: #e4c694;
 }
 
-.blogs ul li {
-  list-style: none;
-  font-size: 1.9vw;
-}
-
-ul {
-  gap: 2vw;
-}
-
-h1 {
-  font-size: 4vw;
-}
-h2,
-h3,
-h4 {
-  font-size: 2vw;
-}
-
-.blog-post {
+.home-left,
+.home-right {
+  min-height: 50vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.home-left {
+  max-width: 50%;
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+}
+
+.home-left img {
+  height: 35vh;
+  width: 27vw;
+  box-shadow: -10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+#top-image {
+  grid-column: 6;
+  grid-row: 3;
+  z-index: 1;
+}
+
+#middle-image {
+  grid-column: 2;
+  grid-row: 5;
+}
+
+#bottom-image {
+  grid-column: 6;
+  grid-row: 8;
+  z-index: 1;
+}
+
+.home-text {
+  min-height: 60vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 5vh;
+}
+
+.blogs-container,
+ul {
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3vh;
+}
+
+.blogs-container ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  min-height: 70vh;
+  width: 70vw;
+  gap: 10vw;
+  list-style: none;
+}
+
+li {
+  font-size: 1.7vw;
+}
+
+.blog-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+li img {
+  margin-top: 5vh;
   height: 50vh;
+  width: 20vw;
+}
+
+li img:hover {
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+}
+
+.blog-post-container {
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 50vh;
   width: 100vw;
   gap: 2vh;
 }
@@ -75,26 +181,22 @@ h4 {
   gap: 1vw;
 }
 
-.blog-links button,
-.blog-form button {
-  height: 6vh;
-  width: 8vw;
-}
-
-.blog-form {
+.blog-form-container,
+.blog-post-container,
+.blog-post {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  min-height: 60vh;
   width: 100vw;
   gap: 2vh;
 }
 
 .post-title {
-  width: 20vw;
   height: 5vh;
+  width: 20vw;
   text-align: center;
 }
 
@@ -102,4 +204,41 @@ h4 {
   height: 40vh;
   width: 20vw;
   text-align: center;
+}
+
+.blog-form-container button,
+.blog-post-buttons button {
+  height: 6vh;
+  width: 8vw;
+}
+
+.blog-form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 20vw;
+  gap: 2vw;
+}
+
+.blog-post-container,
+.blog-post {
+  justify-content: flex-start;
+}
+
+.blog-post {
+  min-height: 70vh;
+  width: 40vw;
+  margin-top: 5vh;
+  padding: 4vh;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.blog-post-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 40vw;
+  gap: 2vw;
 }

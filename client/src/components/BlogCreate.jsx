@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Layout from "../shared/Layout";
 import BlogForm from "../shared/BlogForm";
 import axios from "axios";
 
@@ -36,14 +35,14 @@ const BlogCreate = () => {
     }
   }, [createdBlog, navigate]);
   return (
-    <Layout>
+    <div>
       <BlogForm
         blog={blog}
         handleChange={(e) => handleChange(e)}
         handleSubmit={(e) => handleSubmit(e)}
         cancelPath="/"
       />
-    </Layout>
+    </div>
   );
 };
 
