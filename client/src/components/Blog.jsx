@@ -2,6 +2,14 @@ import { useState, useEffect } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Layout from "../shared/Layout";
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 function Blog() {
   const [blog, setBlog] = useState([]);
@@ -47,19 +55,56 @@ function Blog() {
   return (
     <Layout>
       <div className="blog-post-container">
-        <div className="blog-post">
-          <h4>{blog.title}</h4>
-          <p>Content: {blog.content}</p>
-        </div>
+        <Card
+          sx={{
+            minWidth: 700,
+            maxWidth: 700,
+            marginTop: "20px",
+            minHeight: 550,
+          }}
+        >
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              textAlign="center"
+            >
+              {blog.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {blog.content}
+            </Typography>
+          </CardContent>
+        </Card>
         <div className="blog-post-buttons">
           <NavLink to={`/blogs/${id}/edit`}>
-            <button>Edit</button>
+            <Button
+              variant="outlined"
+              color="secondary"
+              startIcon={<EditIcon />}
+            >
+              Edit
+            </Button>
           </NavLink>
 
-          <button onClick={() => destroy()}>Delete Blog</button>
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={() => destroy()}
+            startIcon={<DeleteIcon />}
+          >
+            Delete
+          </Button>
 
           <NavLink to={"/blogs"}>
-            <button>Back to all blogs</button>
+            <Button
+              variant="outlined"
+              color="secondary"
+              startIcon={<ArrowBackIosNewIcon />}
+            >
+              Back
+            </Button>
           </NavLink>
         </div>
       </div>

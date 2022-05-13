@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Layout from "../shared/Layout";
 import axios from "axios";
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -14,25 +20,36 @@ const Blogs = () => {
       console.log(err);
     }
   };
-
-  const blogsData = blogs.map((blog) => {
-    console.log(blog);
-    return (
-      <li key={blog._id}>
-        <div className="blog-entry">
-          <p>{blog.title}</p>
-          <p>Created On: {blog.createdAt}</p>
-          <p>Updated On: {blog.updatedAt}</p>
+  const blogsData = blogs
+    .sort((id1, id2) => id2 - id1)
+    .map((blog) => {
+      return (
+        <li key={blog._id}>
           <NavLink to={`/blogs/${blog._id}`}>
-            <img
-              src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80"
-              alt=""
-            />
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="150"
+                  image="https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=792&q=80"
+                  alt="green iguana"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {blog.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Lizards are a widespread group of squamate reptiles, with
+                    over 6,000 species, ranging across all continents except
+                    Antarctica
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
           </NavLink>
-        </div>
-      </li>
-    );
-  });
+        </li>
+      );
+    });
 
   useEffect(() => {
     fetchData();

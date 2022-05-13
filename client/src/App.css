@@ -43,9 +43,6 @@ nav {
   align-items: center;
   gap: 10px;
   min-height: 10vh;
-  border-bottom: solid;
-  border-color: black;
-  border-width: 0.8vh;
 }
 
 a:link,
@@ -68,7 +65,7 @@ a:active {
   border-bottom: solid;
   border-color: black;
   border-width: 0.2vh;
-  background-color: #e4c694;
+  background-color: #efd9ce;
 }
 
 .home-left,
@@ -155,12 +152,12 @@ li {
 
 li img {
   margin-top: 5vh;
-  height: 50vh;
+  height: 40vh;
   width: 20vw;
 }
 
 li img:hover {
-  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+  box-shadow: rgba(29, 17, 17, 0.2) 0px 0px 0px 1px inset,
     rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
 }
 
@@ -241,4 +238,22 @@ li img:hover {
   justify-content: center;
   width: 40vw;
   gap: 2vw;
+}
+
+.card {
+  min-width: 50vw;
+  max-height: 20vh;
+  background-color: white;
+  /* contain: content; */
+}
+
+.card img {
+  width: 300px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

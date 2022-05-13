@@ -1,4 +1,5 @@
 import Layout from "../shared/Layout";
+import * as React from "react";
 
 const Home = () => {
   return (
